@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/8480-narutohello.png" type="image/x-icon">
+
+        <!--=============== BOXICONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <!--=============== SWIPER CSS ===============--> 
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============--> 
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!--Search Bar-->
+        <link rel="stylesheet" href= "assets/css/search_bar.css">
+        <script src="https://kit.fontawesome.com/9b8a7e18a0.js"></script>
+
+        <!--add port-->
+        <link rel = "stylesheet" href = "assets/css/add_portfolio_button.css">
+
+        <title>Anime Phonebook</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="{{url_for("home")}}" class="nav__logo">
+                    <img src="assets/img/favicon_3.png" alt="" class="nav__logo-img">
+                    Anime Phonebook
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href= "{{url_for("home")}}" class="nav__link active-link">Home</a>
+                        </li>
+
+                        <a href="{{url_for("add_profile")}}" class="button button--ghost">Add Profile</a>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'></i>
+                    </div>
+
+                    <img src="assets/img/nav-img.png" alt="" class="nav__img">
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+
+            </nav>
+        </header>
+
+        <main class="main">
+            <!--==================== NEW ARRIVALS ====================-->
+            <section class="section new" id="new">
+              <h2 class="section__title">All Anime characters
+                <form class="search_box" method="post" action="{{ url_for('query') }}">
+                  <br>
+                  <div class="search_baar">
+                      <div class="select_aread">
+                          <div class="textaad">Search</div>
+                      </div>
+                      
+                      <div class="linee"></div>
+                      
+                      <div class="text_and-icon">
+                          <input type="text" class="search_text" name="search" placeholder="Search by Name, Number and much more..." required>
+                          <i class="fas fa-search search_icon"></i>
+                      </div>
+                  </div>
+                </form>
+              
+              </h2>   
+
+              <div class="new__container container">
+                {% for row in results %}
+                  <div class="new__content">
+                    {% if row[11] is not none %}
+                    <div class="new__tag"><a href="{{ url_for("call", tm_tokens=row[11], charac = row[0]) }}" style="color: white;"> Call </a></div>
+                    {% endif %}
+                    <img src="{{ row[10] }}" alt="" class="new__img">
+                    <h3 class="new__title">{{ row[0] }} {{ row[1] }}</h3>
+                    <span class="new__subtitle">{{ row[2] }}</span>
+              
+                    <div class="new__prices">
+                      <span class="new__price">{{ row[3] }}</span>
+                    </div>
+
+                    <a class="button new__button" href="{{ url_for('profile', character_abilities=row[4]) }}">
+                    <i>📜</i>
+                    </a>
+                  </div>
+                {% endfor %}
+                <article class="card">
+                  <img
+                    class="card__background"
+                    src="assets/img/nat_add_two.png"
+                    alt="Photo of Cartagena's cathedral at the background and some colonial style houses"
+                    width="1920"
+                    height="2193"
+                  />
+                  <div class="card__content | flow">
+                    <div class="card__content--container | flow">
+                      <h2 class="card__title">Add Profile</h2>
+                      <p class="card__description">
+                        Press this button to add a new character to your Anime Phonebook.
+                      </p>
+                      <br>
+                      <br>
+                      <a button class="card__button" href = "{{url_for("add_profile")}}">Add now</a>
+                  </div>
+                </article>
+              </div>
+                  
+            </section>
+            
+        <!--==================== FOOTER ====================-->
+          <footer class="footer section">
+
+            <span class="footer__copy"></span>
+            <a href="#">
+              <img src="assets/img/point_up-removebg-preview.png" alt="" class="footer__img-one" style="left: 25rem;">
+            </a>
+          </footer>
+        
+        <!--=============== SCROLL UP ===============-->
+          <a href="#" class="scrollup" id="scroll-up">
+            <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+          </a>
+  
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

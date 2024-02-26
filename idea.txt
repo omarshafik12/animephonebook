@@ -1,0 +1,1 @@
+The animephonebook is simply a phonebook where a user is able to add/delete/edit current contacts in said phonebook and even have the ability to call some of the anime characters in their phonebook

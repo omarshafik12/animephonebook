@@ -1,0 +1,63 @@
+# AI communication Aspect
+
+## Overview
+
+This document will explain the functionalitiy behind the code and the associated flow of data.
+
+## Functionaility
+
+  The function "speech reader()" takes input from the microphone and transcribes speech 
+  into lowercased text which it returns as a string.
+
+  Conditions will be added to the user generated string to inform GPT 3.5 what format to structure its response around.
+
+  Upon encountering an Error, the speech reader will return specific text aimed for a
+  specific chatgpt response to the user. 
+
+  For futher information on Speech-to-Text service used in this project, visit: https://cloud.google.com/speech-to-text?hl=en.
+
+  ----------------------------------------------------------------------------------------------------------------------------
+
+  As for, the function "gpt processor()" it requires the input of the variable 
+  user_said.
+
+  While using the API key for authentication, it sends a request to OpenAI's Chat Completion
+  API specifying that the model is the gpt-3.5-turbo and highlighting user_said as the main input. 
+
+  Which it takes the answer of the model and returns it at the end of the function.
+
+  -----------------------------------------------------------------------------------------------------------------------------
+
+  Lastly, The code within voice_encoder.py uses the Fakeyou API to initially login into my account
+  with the chosen model_name aka character's voice.
+
+  For clarification, the key variable to access the model is the ttsModelToken usually set to a string similar to this
+  "TM:y8k6b1ekk1t2". These can be find for each model via this link, https://api.fakeyou.com/tts/list.
+  The model_name is simply used as a checker for accuracy to ensure the correct model is used.
+
+  The chosen model_name variable depends on the selected character through the UI as there are 9 anime character options in total.
+
+  With text set to the response of gpt_processor(), Fakeyou runs the text through their model
+  and then returns a wav file that is temporaily stored in the audioo folder, played, then immediately deleted.
+
+  The reason for the audioo folder is due the requirement of playsound to use a saved file rather to simply using the 
+  audio data.
+  ### This has been changed to pygame mixer for the ability to be able to pause code in a sense until it finishes playing.
+
+## Key Notes
+
+  Both these functionailities, speech reader and gpt processor are limited immensely due to financial limitations.
+  Fakeyou API has almost no limitations on repitions due to my subscription to their premium plan for $25/month, which I plan to end soon.
+  The one main limitation of Fakeyou is speed of repitions at a specific IP address to avoid abuse of their service.
+
+  ----------------------------------------------------------------------------------------------------------------------------------------
+
+  The Romaji is key to use as the Fakeyou models require it to make the character sound like he or she is speaking Japanese. Romaji is
+  just the english way of writing Japanese.
+
+
+## Workflow(in chronological order)
+
+  1. User Speech through Mic is converted to a string named user_said
+  2. User_said is inputted into chatgpt with a response in the form of the impersonated character and in Romaji
+  3. The Romaji is then input into the model as it spits out the the audio sounding like Japanese.

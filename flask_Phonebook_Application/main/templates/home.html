@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/8480-narutohello.png" type="image/x-icon">
+
+        <!--=============== BOXICONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <!--=============== SWIPER CSS ===============--> 
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============--> 
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!--==============Audio=================-->
+        <audio id="soundClip1" src="assets/audio/believe-it!.mp3"></audio>
+        <audio id="soundClip2" src="assets/audio/kamehameha.swf.mp3"></audio>
+        <audio id="soundClip3" src="assets/audio/plus-ultra_1.mp3"></audio>
+
+        <title>Anime Phonebook</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="{{ url_for("home") }}" class="nav__logo">
+                    <img src="assets/img/favicon_3.png" alt="" class="nav__logo-img">
+                    Anime Phonebook
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Home</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#features" class="nav__link">Features</a>
+                        </li>
+
+                        <a href="{{ url_for("list") }}" class="button button--ghost">View All</a>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'></i>
+                    </div>
+
+                    <img src="assets/img/nav-img.png" alt="" class="nav__img">
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+
+            </nav>
+        </header>
+
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home container" id="home">
+                <div class="swiper home-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- HOME SLIDER 1 --><!--REMEMBER TO HAVE ANIME CHARACTERS ON THE SLIDES SAY THEIR LINES DUDE-->
+                        <section class="swiper-slide" data-sound="soundClip1">
+                            <div class="home__content grid">
+                                <div class="home__group">
+                                    <img src="assets/img/Naruto-home-one (1).png" alt="" class="home__img_n">
+                                    <div class="home__indicator"></div>
+    
+                                    <div class="home__details-img">
+                                        <h4 class="home__details-title">Naruto Uzumaki</h4>
+                                        <span class="home__details-subtitle">Naruto Shippuden</span>
+                                    </div>
+                                </div>
+    
+                                <div class="home__data">
+                                    <h3 class="home__subtitle">Learn about your favorite character🤍</h3>
+                                    <h1 class="home__title"> BELIEVE <br> IT!!</h1>
+                                    <p class="home__description">You can learn about your favorite character's 
+                                        phone number, address, anime show, and much more.
+                                    </p>
+                                    <div class="home__buttons">
+                                        <a href="{{ url_for('list') }}" class="button">All</a>
+                                        <div id="cover">
+                                            <form method="post" action="{{ url_for('query') }}">
+                                                <div class="tb">
+                                                    <div class="td"><input type="text" name="search" placeholder="Search" required></div>
+                                                    <div class="td" id="s-cover">
+                                                        <button type="submit">
+                                                            <span></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- HOME SLIDER 2 -->
+                        <section class="swiper-slide" data-sound="soundClip2">
+                            <div class="home__content grid">
+                                <div class="home__group">
+                                    <img src="assets/img/goku-home-one (1).png" alt="" class="home__img_g">
+                                    <div class="home__indicator"></div>
+    
+                                    <div class="home__details-img">
+                                        <h4 class="home__details-title">Son Goku</h4>
+                                        <span class="home__details-subtitle">Dragon Ball Z</span>
+                                    </div>
+                                </div>
+    
+                                <div class="home__data">
+                                    <h3 class="home__subtitle">add/remove characters in your phonebook</h3>
+                                    <h1 class="home__title">KAME <br> HAME <br> HA!!!!</h1>
+                                    <p class="home__description">Explore endless characters with your Anime Phonebook!  
+                                        Customize it by adding or deleting characters, and make it truly yours.
+                                    </p>
+
+                                    <div class="home__buttons">
+                                        <a href="{{ url_for('list') }}" class="button">All</a>
+                                        <div id="cover-2">
+                                            <form method="post" action="{{ url_for('query') }}">
+                                                <div class="tb">
+                                                    <div class="td"><input type="text" name="search" placeholder="Search" required></div>
+                                                    <div class="td" id="s-cover" style="top: 90%;">
+                                                        <button type="submit">
+                                                            <span></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- HOME SLIDER 3 -->
+                        <section class="swiper-slide" data-sound="soundClip3">
+                            <div class="home__content grid">
+                                <div class="home__group">
+                                    <img src="assets/img/Deku-PNG-HD-Image(1).png" alt="" class="home__img_m">
+                                    <div class="home__indicator"></div>
+    
+                                    <div class="home__details-img">
+                                        <h4 class="home__details-title">Izuku Midoriya</h4>
+                                        <span class="home__details-subtitle">My Hero Academia</span>
+                                    </div>
+                                </div>
+    
+                                <div class="home__data">
+                                    <h3 class="home__subtitle">Call ☎️ your favorite characters in your phonebook</h3>
+                                    <h1 class="home__title">PLUS <br> ULTRA <br>!!!</h1>
+                                    <p class="home__description">I reached out to some top heroes to learn who they are behind the mask.
+                                        My favorite was with All Might, he told me how to be the Symbol of Peace.
+                                    </p>
+
+                                    <div class="home__buttons">
+                                        <a href="{{ url_for('list') }}" class="button">All</a>
+                                        <div id="cover-2">
+                                            <form method="post" action="{{ url_for('query') }}">
+                                                <div class="tb">
+                                                    <div class="td"><input type="text" name="search" placeholder="Search" required></div>
+                                                    <div class="td" id="s-cover">
+                                                        <button type="submit">
+                                                            <span></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+            
+            <!--==================== CATEGORY ====================-->
+            <section class="section category" id = "features">
+                <h2 class="section__title">Anime Phonebook <br> Features</h2>
+
+                <div class="category__container container grid">
+                    <div class="category__data">
+                        <img src="assets/img/shar.png" alt="" class="category__img">
+                        <h3 class="category__title">View</h3>
+                        <p class="category__description">Choose which Anime Characters you would love to learn the most about.</p>
+                    </div>
+
+                    <div class="category__data">
+                        <img src="assets/img/Aaang_2.png" alt="" class="category__img">
+                        <h3 class="category__title">Add/Delete</h3>
+                        <p class="category__description">Freely decide which anime characters stay on your phonebook.</p>
+                    </div>
+
+                    <div class="category__data">
+                        <img src="assets/img/gojo_2.png" alt="" class="category__img">
+                        <h3 class="category__title">Call</h3>
+                        <p class="category__description">Have a real time conversation with an Anime character brought into reality.</p>
+                    </div>
+                </div>
+            </section>
+
+             <!--==================== DISCOUNT ====================-->
+             <section class="section discount">
+                <div class="discount__container container grid">
+                    <div class="discount__data">
+                        <h2 class="discount__title">Try Calling <br> Naruto right away</h2>
+                        <a href= {{ url_for("call", tm_tokens= "TM:vd5p2wvh6s5g", charac = "Naruto") }} class="button">Call Naruto</a>
+                    </div>
+
+                    <img src="assets/img/naruto-discount.png" alt="" class="discount__img">
+                </div>
+            </section>
+
+            <!--==================== ABOUT ====================-->
+            <section class="section about" id="about">
+                <div class="about__container container grid">
+                    <div class="about__data">
+                        <h2 class="section__title about__title">Message From <br> All Might</h2>
+                        <p class="about__description">Using the Anime Phonebook, I can finally meet the future heroes of Japan. 
+                            Call me and Deku to find out how to defeat All For One, once and for all, and become the greatest hero of all time. 
+                            Though I doubt Deku will let that happen. Hahaha! Remember Plus Ultra!! <img src="assets/img/all-might-smile.gif" alt="" class="nav__logo-img">
+                        </p>
+                        <a href = {{ url_for("call", tm_tokens= "TM:b13pghrxx23f", charac = "Izuku") }} class="button">Call Midoriya</a>
+                    </div>
+
+                    <img src="assets/img/all_1.png" alt="" class="about__img">
+                </div>
+            </section>
+
+        <!--==================== FOOTER ====================-->
+            <footer class="footer section">
+
+                <span class="footer__copy"></span>
+                <a href="#">
+                    <img src="assets/img/point_up-removebg-preview.png" alt="" class="footer__img-one">
+                </a>
+            </footer>
+        
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <!--=============== FAVICON ===============-->
+            <!--<link rel="shortcut icon" href="assets/img/8480-narutohello.png" type="image/x-icon">-->
+            <title>Anime Phonebook</title>
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/call.css') }}">
+            <script src="https://unpkg.com/htmx.org"></script>
+        </head>
+        <body>
+            <div class="header">
+                <nav>
+                    <img src="{{ url_for('static', filename='img/den_den.png') }}" class="logo">
+                    <br>
+                    <span style="color: white; font-weight: bold; margin-left: 25px;">Contacts</span>
+                    <ul> 
+                        <li> <a href="{{ url_for("call", tm_tokens="TM:vd5p2wvh6s5g", charac = "Naruto") }}"> <img src="https://anime-phonebook.s3.amazonaws.com/naruto/New_nar_1.png"> </a> </li>
+                        <li> <a href="{{ url_for("call", tm_tokens="TM:dxyrtm86ha9w", charac = "Sasuke") }}"> <img src="https://anime-phonebook.s3.amazonaws.com/naruto/sas_new_2.png"> </a> </li>
+                        <li> <a href="{{ url_for("call", tm_tokens="TM:30zw952p0j8p", charac = "Goku") }}"> <img src="https://anime-phonebook.s3.amazonaws.com/dbz/goku_new_2.png"> </a> </li>
+                        <li> <a href="{{ url_for("call", tm_tokens="TM:kkvy5rvjf73j", charac = "Cell") }}"> <img src="https://anime-phonebook.s3.amazonaws.com/dbz/cell_new_1.png"> </a> </li>
+                        <li> <a href="{{ url_for("call", tm_tokens="TM:17xs1rw82jgd", charac = "Android 18") }}"> <img src="https://anime-phonebook.s3.amazonaws.com/dbz/android_new_1.png"> </a> </li>
+                        <li> <a href="{{ url_for("call", tm_tokens="TM:b13pghrxx23f", charac = "Midoriya") }}"> <img src="https://anime-phonebook.s3.amazonaws.com/myhero/Midoriya_new_1.png"> </a> </li>
+                        <li> <a href="{{ url_for("call", tm_tokens="TM:s942sqgzs8v1", charac = "Monkey D. Luffy") }}"> <img src="https://anime-phonebook.s3.amazonaws.com/one_piece/Luffy_new_1.png"> </a> </li>
+                        <li> <a href="{{ url_for("call", tm_tokens="TM:r6ererz9mgc4", charac = "Rorarona Zoro") }}"> <img src="https://anime-phonebook.s3.amazonaws.com/one_piece/Zoro.png"> </a> </li>
+                        <li> <a href="{{ url_for("call", tm_tokens="TM:t6a98r3h3c0b", charac = "Nami") }}"> <img src="https://anime-phonebook.s3.amazonaws.com/one_piece/Nami_Photos_Png.png"> </a> </li>
+                    </ul>
+                </nav>
+                <div class="container">
+                    <div class="top-icons">
+                        <a href="{{ url_for("list") }}"> <img src="{{ url_for('static', filename='img/byakugan.png') }}"> </a>
+                        <a href="{{ url_for("home") }}"> <img src="{{ url_for('static', filename='img/hom.png') }}"> </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="image-container">
+                                <img src="{{ url_for('static', filename='img/background_voice_user.jpg') }}" class="host-img">
+                                <img src="{{ url_for('static', filename='img/den_den.png') }}" class="overlay-image-1">
+                                <div class="overlay-text2">
+                                    Call and say hey
+                                </div>
+                                <div class="cover cover-1"></div>
+                                <div class="glow g1"></div>
+                                <div class="glow g2"></div>
+                                <div class="glow g3"></div>
+                                <div class="glow g4"></div>
+                                <div class="glow g5"></div>
+                                <div class="glow g6"></div>
+                                <div class="glow g7"></div>
+                                <div class="glow g8"></div>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="image-container">
+                                <img src="{{ url_for('static', filename='img/background_voice_user.jpg') }}" class="host-img-2">
+                                <img src="{{ talk_to_img }}" class="overlay-image-2">
+                                <div class="overlay-text">
+                                    {{ english }}
+                                </div>
+                                <div class="cover cover-2"></div>
+                                <div class="glow g1"></div>
+                                <div class="glow g2"></div>
+                                <div class="glow g3"></div>
+                                <div class="glow g4"></div>
+                                <div class="glow g5"></div>
+                                <div class="glow g6"></div>
+                                <div class="glow g7"></div>
+                                <div class="glow g8"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-1">
+                    <div class="contarols">
+                        <!--I left the extra images that do nothing there just that it would look cooler-->
+                        <img src="https://i.postimg.cc/3NVtVtgf/chat.png">
+                        <img src="https://i.postimg.cc/BQPYHG0r/disconnect.png" id="callButton">
+                        <img src="{{ url_for('static', filename='img/call_button.png') }}" class="call-icon" id="first-image" alt="Call Button">
+                        <a href="{{ url_for("home") }}" id="second-image-link" style="display: none;">
+                            <img src="https://i.postimg.cc/fyJH8G00/call.png" class="call-icon" id="second-image" alt="Second Image">
+                        </a>
+                        <!--<img src = "{{ url_for('static', filename='img/call_button.png') }}" class="call-icon" id="second-image">-->
+                        <img src="https://i.postimg.cc/bJFgSmFY/mic.png">
+                        <img src="https://i.postimg.cc/Y2sDvCJN/cast.png">
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Function to send POST request
+                function sendPostRequest() {
+                    var tm_tokens = '{{ tm_tokens }}'; // Replace with your actual value
+                    var charac = '{{ charac }}'; // Replace with your actual value
+                    var url = '{{ url_for("call", tm_tokens=tm_tokens, charac=charac) }}';
+            
+                    fetch(url, {
+                        method: 'POST',
+                        body: JSON.stringify({}), // You can add data to be sent in the body
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(response => {
+                        // Handle response
+                        if (response.ok) {
+                            response.text().then(data => {
+                                // Update overlay text
+                                document.querySelector('.overlay-text').textContent = data;
+            
+                                // Update overlay-text2 to empty string before the 2 seconds
+                                document.querySelector('.overlay-text2').textContent = '';
+            
+                                // Check if specific text is in the response
+                                if (!(data.includes("please reload the page") || data.includes("Conversation ended"))) {
+                                    // Set a timeout before sending another request
+                                    setTimeout(function() {
+                                        // Update overlay-text2 to 'Speak' after 2 seconds
+                                        document.querySelector('.overlay-text2').textContent = 'Speak and say hey';
+            
+                                        // Send another POST request after 2 seconds
+                                        sendPostRequest();
+                                    }, 4000); // 2000 milliseconds = 2 seconds
+                                }
+                            });
+                        } else {
+                            console.error('Response failed with status ' + response.status);
+                        }
+                    }).catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+            
+                // Adding event listener to the first image
+                document.getElementById('first-image').addEventListener('click', function() {
+                    // Swap visibility of images
+                    document.getElementById('first-image').style.display = 'none';
+                    document.getElementById('second-image-link').style.display = 'inline';
+            
+                    var tm_tokens = '{{ tm_tokens }}'; // Replace with your actual value
+                    if (tm_tokens) {
+                        // Initial call to send POST request
+                        sendPostRequest();
+                    }
+                });
+            </script>                                  
+        </body>
+    </html>

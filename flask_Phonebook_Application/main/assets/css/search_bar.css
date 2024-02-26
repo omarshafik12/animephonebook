@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+.search_baar {
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
+  margin : auto;
+  width : 612px;
+  height: 54px;
+  background-color : white;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 10px 38px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 10px 38px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 38px 0px rgba(0,0,0,0.1);
+}
+
+.select_aread {
+  color: #ff845e;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  line-height: 24px;
+  font-weight: medium;
+  font-size: 20px; /* Adjust the font size as needed */
+}
+
+
+.textaad {
+  padding-right:10px;
+}
+
+.linee {
+  margin-left: 15px;
+  border-left: 1px solid #D8D8D8;
+  height: 40px;
+}
+
+.search_text {
+  width: 100% !important;
+  border: none;
+  margin-left: 15px;
+  margin-right: 0px;
+  font-size: 16px !important;
+  font-family: 'Roboto', sans-serif;
+  line-height: 20px;
+  font-weight: normal;
+}
+
+::-webkit-input-placeholder,
+::placeholder {
+  color: #ADB1B8;
+  font-size: 16px; /* Adjust the font size for the placeholder text */
+}
+
+  
+
+.text_and-icon {
+  width: 410px;
+  display: flex;
+  align-items: center;
+}
+.search_icon {
+  color : #5E6573;
+    transition: all .6s ease-in-out;
+    -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all .6s ease-in-out; /** Firefox **/
+    -o-transition: all .6s ease-in-out; /** Opera **/
+}
+
+.search_text:focus {
+  outline: none !important;
+}
+
+.search_text:focus + .search_icon{
+  color : #ff845e;
+  transform: translate(55px,0);
+    -webkit-transform: translate(55px,0); 
+    -o-transform: translate(55px,0); 
+    -moz-transform: translate(55px);
+}
